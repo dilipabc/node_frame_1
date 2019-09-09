@@ -295,11 +295,11 @@ We are create the router with the [express js](https://expressjs.com/en/guide/ro
 
 * Methods
 
-    *) _group
+    * _group
 
-        *) Definition
+        * Definition
             If are you want to create any group of URL so please use this function
-        *) Example
+        * Example
 
             ```js
             Router._group('/groupName', function (Router) {
@@ -307,11 +307,11 @@ We are create the router with the [express js](https://expressjs.com/en/guide/ro
             });
             ```
 
-    *) _get / get
+    * _get / get
 
-        *) Definition
+        * Definition
             If are you want to create any get URL so please use this function
-        *) Example
+        * Example
 
             ```js
             Router._get('/yourURL', 'ControllerName.FunctionName');
@@ -322,11 +322,11 @@ We are create the router with the [express js](https://expressjs.com/en/guide/ro
             Router.get('/yourURL', 'ControllerName.FunctionName');
             ```
 
-    *) _post / post
+    * _post / post
 
-        *) Definition
+        * Definition
             If are you want to create any post URL so please use this function
-        *) Example
+        * Example
 
             ```js
             Router._post('/yourURL', 'ControllerName.FunctionName');
@@ -335,9 +335,9 @@ We are create the router with the [express js](https://expressjs.com/en/guide/ro
             ```js
             Router.post('/yourURL', 'ControllerName.FunctionName');
             ```
-    *) _resource_api
+    * _resource_api
 
-        *) Definition
+        * Definition
             If are you want to create a single url and use app response type like (GET, GET with ID, POST, PUT, DELETE) then please use this functions.If are create any URL with this function then please create all these (index, store, show, update, destroy) function in your controller.
 
             * index
@@ -355,7 +355,7 @@ We are create the router with the [express js](https://expressjs.com/en/guide/ro
             * destroy
                 This function create for delete url. With this function you are able to update the data with help of delete request.
 
-        *) Example
+        * Example
 
             ```js
             Router.get('/yourURL', 'ControllerName');
@@ -363,191 +363,191 @@ We are create the router with the [express js](https://expressjs.com/en/guide/ro
 
 ## Controller <a name="controller"></a>
 
-    You can easily create a controller file in this framework.
+You can easily create a controller file in this framework.
 
-        * Process
-        Create any controller "fileNameController.js" / "fileName.js" file in app/Http/Controllers. For easily handling the controller name Create as table name, first character is capital and add 'Controller' text save with the file as .js extension.
+* Process
+    Create any controller "fileNameController.js" / "fileName.js" file in app/Http/Controllers. For easily handling the controller name Create as table name, first character is capital and add 'Controller' text save with the file as .js extension.
 
-        * Example with best practice
+    * Example with best practice
 
-             ```
-            "FileNameController.js"
-             ```
+        ```
+        "FileNameController.js"
+        ```
 
-        * FileNameController.js
+    * FileNameController.js
 
-            * Define a Controller
-
-            ```js
-            const FileNameController = {
-            
-            };
-            module.exports = FileNameController;
-            ```
-
-            ```js
-            module.exports = {
-
-            });
-            ```
-            ```js
-            module.exports = class FirebaseNotification {
-
-            };
-            ```
-            
-            * With All Resources
-
-            ```js
-            const FileNameController = {
-                index: function (req, res, next) {
-                   // function Definition ....
-                },
-
-                store: function (req, res, next) {
-                   // function Definition ....
-                },
-
-                show: function (req, res, next) {
-                   // function Definition ....
-                },
-
-                update: function (req, res, next) {
-                   // function Definition ....
-                },
-
-                destroy: function (req, res, next) {
-                   // function Definition ....
-                },
-            };
-
-            module.exports = FileNameController;
-            ```
-
-            * Handdle the requests in controller
- 
-            * GET
-
-            How to received the data in node js with get method.
-
-            ```js
-            const FileNameController = {
-                yourFunctionName: function (req, res, next) {
-                   // function Definition ....
-                   let data = req.query;
-                   console.log(data);
-                },                
-            };
-            module.exports = FileNameController;
-            ```
-
-            * POST
-
-            How to received the data in node js with post method.
-
-            ```js
-            const FileNameController = {
-                yourFunctionName: function (req, res, next) {
-                   // function Definition ....
-                   let data = req.body;
-                   console.log(data);
-                },                
-            };
-            module.exports = FileNameController;
-            ```
-
-            * URL Params
-
-            How to received the data in node js from url's.
-
-            ```js
-            const FileNameController = {
-                yourFunctionName: function (req, res, next) {
-                   // function Definition ....
-                   let data = req.params;
-                   console.log(data);
-                },                
-            };
-            module.exports = FileNameController;
-            ```
-
-        * How to include Libraries file in conntroller
-
-            ```js
-            const LibrariesObject = Libraries('LibrariesFileName');
-            ```
-        * How to include Mails file in conntroller
-
-            ```js
-            const MailsObject = Mails('MailsFileName');
-            ```
-
-        * How to include Providers file in conntroller
-
-            ```js
-            const ProvidersObject = Providers('ProvidersFileName');
-            ```
-
-        * How to include Helper file in conntroller
-
-            ```js
-            const HelperObject = Helper('HelperFileName');
-            ```
-
-        * How to include Models file in conntroller
-
-            ```js
-            const ModelsObject = Models('ModelsFileName');
-            ```
-
-    * Validation
-
-        Example
+        * Define a Controller
 
         ```js
-        const Validator = Helper('validator');
-
         const FileNameController = {
-            yourFunctionName: async function (req, res, next) {
-
-                let formData = req.body;
-                let validation = new Validator(formData, {
-                    username: 'required|string|unique:users', //table name 'users'
-                    email: 'required|email|unique:users', //table name 'users'
-                    password: 'required|minLength:8|maxLength:15',
-                    first_name: 'required|string|maxLength:250',
-                    last_name: 'required|string|maxLength:250',
-                    dob: 'required|dateFormat:YYYY-MM-DD',
-                    gender: 'required|maxLength:1',
-                    phone_number: 'required|numeric',
-                    address: 'required|string|maxLength:255',
-                    emirate_id: 'required|numeric',
-                    role_id: 'required|numeric',
-                    restaurant_id: 'required|integer',
-                    table_no: 'required|string',
-                    order_type: 'required|string|maxLength:6',
-                    user_id: 'required|integer',
-                    item_id: 'required|integer',
-                    item_type: 'required|string|maxLength:1',
-                    item_quantity: 'required|integer',
-                    special_instraction: 'string|maxLength:255',
-                    serving_options: 'required',
-                    addOns: 'required',
-                });
-
-                let matched = await validation.check();
-
-                if (!matched) {
-                    return res.status(200).json(res.fnError(validation.errors));
-                }
-
-                // function Definition ....                
-            },                
+        
         };
         module.exports = FileNameController;
         ```
 
-        For more details [click here](https://www.npmjs.com/package/node-input-validator).
+        ```js
+        module.exports = {
+
+        });
+        ```
+        ```js
+        module.exports = class FirebaseNotification {
+
+        };
+        ```
+        
+        * With All Resources
+
+        ```js
+        const FileNameController = {
+            index: function (req, res, next) {
+                // function Definition ....
+            },
+
+            store: function (req, res, next) {
+                // function Definition ....
+            },
+
+            show: function (req, res, next) {
+                // function Definition ....
+            },
+
+            update: function (req, res, next) {
+                // function Definition ....
+            },
+
+            destroy: function (req, res, next) {
+                // function Definition ....
+            },
+        };
+
+        module.exports = FileNameController;
+        ```
+
+* Handdle the requests in controller
+
+    * GET
+
+    How to received the data in node js with get method.
+
+    ```js
+    const FileNameController = {
+        yourFunctionName: function (req, res, next) {
+            // function Definition ....
+            let data = req.query;
+            console.log(data);
+        },                
+    };
+    module.exports = FileNameController;
+    ```
+
+    * POST
+
+    How to received the data in node js with post method.
+
+    ```js
+    const FileNameController = {
+        yourFunctionName: function (req, res, next) {
+            // function Definition ....
+            let data = req.body;
+            console.log(data);
+        },                
+    };
+    module.exports = FileNameController;
+    ```
+
+    * URL Params
+
+    How to received the data in node js from url's.
+
+    ```js
+    const FileNameController = {
+        yourFunctionName: function (req, res, next) {
+            // function Definition ....
+            let data = req.params;
+            console.log(data);
+        },                
+    };
+    module.exports = FileNameController;
+    ```
+
+* How to include Libraries file in conntroller
+
+    ```js
+    const LibrariesObject = Libraries('LibrariesFileName');
+    ```
+* How to include Mails file in conntroller
+
+    ```js
+    const MailsObject = Mails('MailsFileName');
+    ```
+
+* How to include Providers file in conntroller
+
+    ```js
+    const ProvidersObject = Providers('ProvidersFileName');
+    ```
+
+* How to include Helper file in conntroller
+
+    ```js
+    const HelperObject = Helper('HelperFileName');
+    ```
+
+* How to include Models file in conntroller
+
+    ```js
+    const ModelsObject = Models('ModelsFileName');
+    ```
+
+* Validation
+
+    * Example
+
+    ```js
+    const Validator = Helper('validator');
+
+    const FileNameController = {
+        yourFunctionName: async function (req, res, next) {
+
+            let formData = req.body;
+            let validation = new Validator(formData, {
+                username: 'required|string|unique:users', //table name 'users'
+                email: 'required|email|unique:users', //table name 'users'
+                password: 'required|minLength:8|maxLength:15',
+                first_name: 'required|string|maxLength:250',
+                last_name: 'required|string|maxLength:250',
+                dob: 'required|dateFormat:YYYY-MM-DD',
+                gender: 'required|maxLength:1',
+                phone_number: 'required|numeric',
+                address: 'required|string|maxLength:255',
+                emirate_id: 'required|numeric',
+                role_id: 'required|numeric',
+                restaurant_id: 'required|integer',
+                table_no: 'required|string',
+                order_type: 'required|string|maxLength:6',
+                user_id: 'required|integer',
+                item_id: 'required|integer',
+                item_type: 'required|string|maxLength:1',
+                item_quantity: 'required|integer',
+                special_instraction: 'string|maxLength:255',
+                serving_options: 'required',
+                addOns: 'required',
+            });
+
+            let matched = await validation.check();
+
+            if (!matched) {
+                return res.status(200).json(res.fnError(validation.errors));
+            }
+
+            // function Definition ....                
+        },                
+    };
+    module.exports = FileNameController;
+    ```
+
+For more details [click here](https://www.npmjs.com/package/node-input-validator).
 
 ## View <a name="view"></a> 
 
