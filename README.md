@@ -114,7 +114,7 @@ With the Help of following node modules we are create this Node Js framework. Th
 * [HTTP](#http)
 * [HTTPS](#https)
 * Custom Command
-
+* [FCM Notification](#notification)
 
 ## Database 
 
@@ -758,7 +758,59 @@ For More details [click here](https://expressjs.com/en/guide/routing.html)
 
 Coming Soon...
 
+## FCM Notification <a name="notification"></a> 
 
-## license
+Send firebase notification with this framework in android, ios, and website.
+
+* Process
+
+```js
+const firebaseNotification = Libraries('firebaseNotification');
+
+let databaseUrl = '';
+let fireBaseFileFullPath = publicPath + '';
+fcm = new firebaseNotification(fireBaseFileFullPath, databaseUrl);
+let deviseId = '';
+let notification = {
+    title: 'Test',
+    body: 'This is a test message'
+}
+fcm.send(notification, deviseId, function (response) {
+    console.log(response);
+});
+
+```
+
+```js
+const firebaseNotification = Libraries('firebaseNotification');
+
+let databaseUrl = '';
+let fireBaseFileFullPath = publicPath + '';
+fcm = new firebaseNotification(fireBaseFileFullPath, databaseUrl);
+let deviseId = [];
+let notification = {
+    title: 'Test',
+    body: 'This is a test message'
+}
+fcm.sendAll(notification, deviseId, function (response) {
+    console.log(response);
+});
+
+```
+
+* How to get databaseUrl and fireBaseFileFullPath.
+
+    * First Login with your gmail account in [firebase cosole](https://console.firebase.google.com/).
+    * Create a project in firebase.
+    * Click on Settings Button from left panel.
+    * Then click on Project settings Links.
+    * Then click on Service accounts Links.
+    * On bottom on the page you can find the databaseURL.
+    * After click on Generate new private key you can find the file.
+    * Copy this file in public folder.
+    * Add your file with full file path.
+
+
+## License
 
 This framework creating for help the all developer. Our aim is not make money from this framework. Developer are free to use this framework. If you have any suggestion or comment please send me as mail.
