@@ -120,7 +120,7 @@ With the Help of following node modules we are create this node js framework. Th
 
 1. Database <a name="configurations"></a> 
 
-This framework use the knex and bookshelf modules for access the database. This modules are provide more control on database. In these ORM very easy to create models and access relations data from database. For more information about these ORM [Knex](http://knexjs.org/) [Bookshelf](https://bookshelfjs.org/tutorial-many-to-many.html). You are also free for use any bookshelf related addons/plugin.
+This framework use the knex and bookshelf modules for access the database. This modules are provide more control on database. In these ORM very easy to create models and access relations data from database. For more information about these ORM [Knex](http://knexjs.org/) and [Bookshelf](https://bookshelfjs.org/tutorial-many-to-many.html). You are also free for use any bookshelf related addons/plugin.
 
     * Process to use bookshelf plugin
     
