@@ -135,7 +135,7 @@ Database connection related information save in the .env file. Connection initia
 You can easily create a model file in this framework.
 
 * Process
-Create any model "fileName.js" file in app/Http/Models. For easily handling model name Create as table name and first character is capital save with the file as .js extension.
+Create any model "fileName.js" file in app/Http/Models. For easily handling model name Create as table name and first character is lowercase save with the file as .js extension.
 
 * Sample file name
 
