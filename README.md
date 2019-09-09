@@ -553,61 +553,61 @@ For more details [click here](https://www.npmjs.com/package/node-input-validator
 
 For view control we are use the EJS. In ejs very easily to use thiming. For more detail [click here](https://ejs.co/#features). You are free to create multiple layouts.
 
-    * Process
-    Create the your thiming files in 'app/Views' folder
+* Process
+Create the your thiming files in 'app/Views' folder
 
-    * Example 
+* Example 
 
-        ```
-        app/Views/elements/header.ejs
-        app/Views/elements/menu.ejs
-        app/Views/elements/footer.ejs
+    ```
+    app/Views/elements/header.ejs
+    app/Views/elements/menu.ejs
+    app/Views/elements/footer.ejs
 
-        app/Views/layout.ejs
-        ```
-        
-        Process to include file in ejs
+    app/Views/layout.ejs
+    ```
+    
+    Process to include file in ejs
 
-        ```js
-        <%- include('elements/header'); %>
-        <%- include('elements/menu'); %>
+    ```js
+    <%- include('elements/header'); %>
+    <%- include('elements/menu'); %>
 
-            //Working Area
+        //Working Area
 
-            <%= variable %>            
+        <%= variable %>            
 
-        <%- include('elements/footer'); %>
-        ```
-        
-        GitHub [Link](https://github.com/mde/ejs)
+    <%- include('elements/footer'); %>
+    ```
+    
+For more details [click here](https://github.com/mde/ejs).
     
 
 ## Libraries <a name="libraries"></a>
 
 You can easily create a libraries file in this framework.
 
-    * Process
-    Create the your libraries files in 'app/Libraries' folder.
+* Process
+Create the your libraries files in 'app/Libraries' folder.
 
-    * Example
+* Example
 
-    TestLibraries.js
+TestLibraries.js
 
-    ```js
-    const TestLibraries = {
-        yourFunctionName: function () {
-            // function Definition ....
-            
-        },                
-    };
-    module.exports = TestLibraries;
-    ```
+```js
+const TestLibraries = {
+    yourFunctionName: function () {
+        // function Definition ....
+        
+    },                
+};
+module.exports = TestLibraries;
+```
 
-    ```js
-    module.exports = class TestLibraries {
+```js
+module.exports = class TestLibraries {
 
-    };
-    ```
+};
+```
     
 
 
@@ -615,63 +615,63 @@ You can easily create a libraries file in this framework.
 
 For send mail we are use the [nodemailer](https://github.com/nodemailer/nodemailer). For email templating we are use the [email-templates](https://github.com/niftylettuce/email-templates). These modules are very easy to handle. you are free to create you mail sender file as per requirement.
 
-    * Process
+* Process
 
-        * Step 1
-        Configure the .env file with your smtp details in application root.
+    * Step 1
+    Configure the .env file with your smtp details in application root.
 
-        * Step 2
-        Create a mail sender file in 'app/Mails' folder. 
+    * Step 2
+    Create a mail sender file in 'app/Mails' folder. 
 
-            Example : 'EmailTest.js'
+    Example : 'EmailTest.js'
 
-            ```js
-            const Mail = Helper('mail');
+    ```js
+    const Mail = Helper('mail');
 
-            module.exports = function(details){    
-                const mailOptions = {
-                    to:details.to, 
-                    subject:details.subject,
-                    template:{
-                        path : 'emailTemplateTest',
-                        data : {myData:details}
-                    }
-                };
-                return Mail(mailOptions);
+    module.exports = function(details){    
+        const mailOptions = {
+            to:details.to, 
+            subject:details.subject,
+            template:{
+                path : 'emailTemplateTest',
+                data : {myData:details}
             }
-            ```     
-        * Step 3
-        Call this function in controller
+        };
+        return Mail(mailOptions);
+    }
+    ```     
+    * Step 3
+    Call this function in controller
 
-            ```js
-            const EmailTest = Helper('EmailTest');
+    ```js
+    const EmailTest = Helper('EmailTest');
 
-            const FileNameController = {
-                yourFunctionName: function (req, res, next) {
-                    let data = {
-                        to : 'aaa@test.com',
-                        subject : 'My subjects',
-                        title : 'My title',
-                        message : 'my content',
-                    }
-                   EmailTest(data).then(function(responce){
-                       console.log(responce);
-                   });
-                },                
-            };
-            module.exports = FileNameController;
-            ```       
-        * Step 4
-        Create template file in 'app/Views/email' folder with .ejs extension.
-        
-            * Example
-                emailTemplateTest.ejs  
+    const FileNameController = {
+        yourFunctionName: function (req, res, next) {
+            let data = {
+                to : 'aaa@test.com',
+                subject : 'My subjects',
+                title : 'My title',
+                message : 'my content',
+            }
+            EmailTest(data).then(function(responce){
+                console.log(responce);
+            });
+        },                
+    };
+    module.exports = FileNameController;
+    ```       
+    * Step 4
+    Create template file in 'app/Views/email' folder with .ejs extension.
+    
+    * Example
+        emailTemplateTest.ejs  
 
-            ```js
-            <h1><%= myData.title %>,</h1>
+    ```
+    <h1><%= myData.title %>,</h1>
 
-            <p><%= myData.message %></p>
-            ```     
+    <p><%= myData.message %></p>
+    ```     
 
 ## CRON
 
@@ -681,49 +681,49 @@ Coming Soon...
 
 You can easily create a middleware file in this framework.
 
-    * Process
-    Create the your helper files in 'app/Http/Middlewares' folder.
+* Process
+Create the your helper files in 'app/Http/Middlewares' folder.
 
-    * Example
+* Example
 
-    Middlewares.js
+Middlewares.js
 
-    ```js
-    module.exports = function (req, res, next) {
-        //Your statement
-        next();
-    };
-    ```
+```js
+module.exports = function (req, res, next) {
+    //Your statement
+    next();
+};
+```
 
-    For more detail [click here](https://expressjs.com/en/guide/using-middleware.html)
+For more detail [click here](https://expressjs.com/en/guide/using-middleware.html)
 
 
 ## Helper <a name="helper"></a>    
 
 You can easily create a helper file in this framework.
 
-    * Process
-    Create the your helper files in 'app/Helpers' folder.
+* Process
+Create the your helper files in 'app/Helpers' folder.
 
-    * Example
+* Example
 
-    TestHelpers.js
+TestHelpers.js
 
-    ```js
-    const TestHelpers = {
-        yourFunctionName: function () {
-            // function Definition ....
-            
-        },                
-    };
-    module.exports = TestHelpers;
-    ```
+```js
+const TestHelpers = {
+    yourFunctionName: function () {
+        // function Definition ....
+        
+    },                
+};
+module.exports = TestHelpers;
+```
 
-    ```js
-    module.exports = class TestHelpers {
+```js
+module.exports = class TestHelpers {
 
-    };
-    ```
+};
+```
 
 ## HTTP <a name="http"></a>
 This application by default run with http. For More details [click here](https://expressjs.com/en/guide/routing.html)
@@ -734,22 +734,23 @@ If are you want run your application with https then follow this steps.
 * Step 1
 Configure .env file in root.
 
-    ```
-    APP_SECURE = true
-    ```
+```
+APP_SECURE = true
+```
+
 * Step 2
 Configure app.js file in root. Add path of ssl-cert-snakeoil.key and ssl-cert-snakeoil.pem from you server.
 
-    ```js
-    var options = {
-        key: fs.readFileSync('/etc/ssl/private/ssl-cert-snakeoil.key'),
-        //ssl key file path
-        cert: fs.readFileSync('/etc/ssl/certs/ssl-cert-snakeoil.pem'),
-        //ssl pem file path
-        requestCert: true,
-        rejectUnauthorized: false
-    };
-    ```
+```js
+var options = {
+    key: fs.readFileSync('/etc/ssl/private/ssl-cert-snakeoil.key'),
+    //ssl key file path
+    cert: fs.readFileSync('/etc/ssl/certs/ssl-cert-snakeoil.pem'),
+    //ssl pem file path
+    requestCert: true,
+    rejectUnauthorized: false
+};
+```
 
 For More details [click here](https://expressjs.com/en/guide/routing.html)
 
