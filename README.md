@@ -135,22 +135,22 @@ Database connection related information save in the .env file. Connection initia
 You can easily create a model file in this framework.
 
 * Process
-Create any model "fileName.js" file in app/Http/Models. For easily handling model name Create as table name and first character is lowercase save with the file as .js extension.
+Create any model "FileName.js" file in app/Http/Models. For easily handling model name Create as table name and first character is capital save with the file as .js extension.
 
 * Sample file name
 
 ```
-fileName.js
+FileName.js
 ```
 
 * Define a Model 
 
 ```js
-let fileName = dbConn.Model.extend({
+let FileName = dbConn.Model.extend({
     tableName: 'table_One',
 });
 
-module.exports = fileName;
+module.exports = FileName;
 ```
 
 * Relationship
@@ -165,7 +165,7 @@ module.exports = fileName;
 Find More Details [Bookshelf](https://bookshelfjs.org/tutorial-many-to-many.html).
 
 ```js
-let fileName = dbConn.Model.extend({
+let FileName = dbConn.Model.extend({
     tableName: 'table_One',
 });
 
@@ -173,13 +173,13 @@ modelTwoFileName: function () {
     return this.hasMany(Models('ModelTwoFileName'), 'table_one_id');
 },           
 
-module.exports = fileName;
+module.exports = FileName;
 ```
 
 * Virtual Fields
 
 ```js
-let fileName = dbConn.Model.extend({
+let FileName = dbConn.Model.extend({
     tableName: 'table_One',
 });
 
@@ -189,7 +189,7 @@ virtuals: {
     }
 }  
 
-module.exports = fileName;
+module.exports = FileName;
 ```
 
 
@@ -366,7 +366,7 @@ We are create the router with the [express js](https://expressjs.com/en/guide/ro
 You can easily create a controller file in this framework.
 
 * Process
-    Create any controller "fileNameController.js" / "fileName.js" file in app/Http/Controllers. For easily handling the controller name Create as table name, first character is capital and add 'Controller' text save with the file as .js extension.
+    Create any controller "FileNameController.js" / "FileName.js" file in app/Http/Controllers. For easily handling the controller name Create as table name, first character is capital and add 'Controller' text save with the file as .js extension.
 
     * Example with best practice
 
