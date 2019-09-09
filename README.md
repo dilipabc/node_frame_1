@@ -157,10 +157,10 @@ module.exports = fileName;
 
     Types of Relation
 
-    *) hasMany
-    *) belongsTo
-    *) hasOne
-    *) belongsToMany
+    * hasMany
+    * belongsTo
+    * hasOne
+    * belongsToMany
 
 Find More Details [Bookshelf](https://bookshelfjs.org/tutorial-many-to-many.html).
 
