@@ -764,39 +764,43 @@ Send firebase notification with this framework in android, ios, and website.
 
 * Process
 
-```js
-const firebaseNotification = Libraries('firebaseNotification');
+1. Send Single Notification
 
-let databaseUrl = '';
-let fireBaseFileFullPath = publicPath + '';
-fcm = new firebaseNotification(fireBaseFileFullPath, databaseUrl);
-let deviseId = '';
-let notification = {
-    title: 'Test',
-    body: 'This is a test message'
-}
-fcm.send(notification, deviseId, function (response) {
-    console.log(response);
-});
+    ```js
+    const firebaseNotification = Libraries('firebaseNotification');
 
-```
+    let databaseUrl = '';
+    let fireBaseFileFullPath = publicPath + '';
+    fcm = new firebaseNotification(fireBaseFileFullPath, databaseUrl);
+    let deviseId = '';
+    let notification = {
+        title: 'Test',
+        body: 'This is a test message'
+    }
+    fcm.send(notification, deviseId, function (response) {
+        console.log(response);
+    });
 
-```js
-const firebaseNotification = Libraries('firebaseNotification');
+    ```
 
-let databaseUrl = '';
-let fireBaseFileFullPath = publicPath + '';
-fcm = new firebaseNotification(fireBaseFileFullPath, databaseUrl);
-let deviseId = [];
-let notification = {
-    title: 'Test',
-    body: 'This is a test message'
-}
-fcm.sendAll(notification, deviseId, function (response) {
-    console.log(response);
-});
+2. Send Multiple Notification
 
-```
+    ```js
+    const firebaseNotification = Libraries('firebaseNotification');
+
+    let databaseUrl = '';
+    let fireBaseFileFullPath = publicPath + '';
+    fcm = new firebaseNotification(fireBaseFileFullPath, databaseUrl);
+    let deviseId = [];
+    let notification = {
+        title: 'Test',
+        body: 'This is a test message'
+    }
+    fcm.sendAll(notification, deviseId, function (response) {
+        console.log(response);
+    });
+
+    ```
 
 * How to get databaseUrl and fireBaseFileFullPath.
 
