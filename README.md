@@ -98,184 +98,184 @@ With the Help of following node modules we are create this node js framework. Th
 
 ## Features
 
-    * [Database](#database)
-        * MYSQL
-            * [Connection](#connection)
-            * [Model](#model)
-            * [Migration](#migration)
-    * [Router](#router)
-    * [Controller](#controller)    
-    * [View](#view)
-    * [Libraries](#libraries)        
-    * [SMTP](#smtp)
-    * CRON
-    * [Middleware](#middleware)
-    * [Helper](#helper)    
-    * [HTTP](#http)
-    * [HTTPS](#https)
-    * Custom Command
+* [Database](#database)
+    * MYSQL
+        * [Connection](#connection)
+        * [Model](#model)
+        * [Migration](#migration)
+* [Router](#router)
+* [Controller](#controller)    
+* [View](#view)
+* [Libraries](#libraries)        
+* [SMTP](#smtp)
+* CRON
+* [Middleware](#middleware)
+* [Helper](#helper)    
+* [HTTP](#http)
+* [HTTPS](#https)
+* Custom Command
 
 
 ## Database 
 
-    * Database <a name="configurations"></a> 
+* Database <a name="configurations"></a> 
+
+This framework use the knex and bookshelf modules for access the database. This modules are provide more control on database. In these ORM very easy to create models and access relations data from database. For more information about these ORM [Knex](http://knexjs.org/) [Bookshelf](https://bookshelfjs.org/tutorial-many-to-many.html). You are also free for use any bookshelf related addons/plugin.
+
+    * Process to use bookshelf plugin
     
-    This framework use the knex and bookshelf modules for access the database. This modules are provide more control on database. In these ORM very easy to create models and access relations data from database. For more information about these ORM [Knex](http://knexjs.org/) [Bookshelf](https://bookshelfjs.org/tutorial-many-to-many.html). You are also free for use any bookshelf related addons/plugin.
+    If you want to use the any bookshelf related addons then install the plugin and add 'Bookshelf.plugin('pluginName');' in config/db_connection.js file.
 
-        * Process to use bookshelf plugin
+* Connection <a name="connection"></a>
+
+Database connection related information save in the .env file. Connection initialization declared in "config/db_connection.js" file.
+
+* Model <a name="model"></a>
+
+You can easily create a model file in this framework.
+
+    * Process
+    Create any model "fileName.js" file in app/Http/Models. For easily handling model name Create as table name and first character is capital save with the file as .js extension.
+
+    * fileName.js
+
+        * Define a Model 
+
+        ```js
+        let fileName = dbConn.Model.extend({
+            tableName: 'table_One',
+        });
+
+        module.exports = fileName;
+        ```
+
+        * Relationship
+
+            Types of Relation
+
+            *) hasMany
+            *) belongsTo
+            *) hasOne
+            *) belongsToMany
+
+            Find More Details [Bookshelf](https://bookshelfjs.org/tutorial-many-to-many.html).
+
+        ```js
+        let fileName = dbConn.Model.extend({
+            tableName: 'table_One',
+        });
+
+        modelTwoFileName: function () {
+            return this.hasMany(Models('ModelTwoFileName'), 'table_one_id');
+        },           
+
+        module.exports = fileName;
+        ```
+
+        * Virtual Fields
+
+        ```js
+        let fileName = dbConn.Model.extend({
+            tableName: 'table_One',
+        });
+
+        virtuals: {   
+            full_name: function () {
+                return this.get('first_name') + ' ' + this.get('last_name');
+            }
+        }  
+
+        module.exports = fileName;
+        ```
+
+
+
+    * How to Use Model In Controller
+
+        * Fetch One
+
+        ```js
+        const ModelObj = Models('ModelFileName');
+
+        ModelObj.fetch().then((Response) => {
+            let responses = Response.toJSON();
+            console.log(responses);
+        }).catch((errors) => {
+            return res.status(400).json(res.fnError(errors));
+        });
+        ```
+
+        * Fetch All
+
+        ```js
+        const ModelObj = Models('ModelFileName');
+
+        ModelObj.fetchAll().then((Response) => {
+            let responses = Response.toJSON();
+            console.log(responses);
+        }).catch((errors) => {
+            return res.status(400).json(res.fnError(errors));
+        });
+        ```
+
+        * With Where
+
+        ```js
+        const ModelObj = Models('ModelFileName');
+
+        ModelObj.where('id', 1).fetchAll().then((Response) => {
+            let responses = Response.toJSON();
+            console.log(responses);
+        }).catch((errors) => {
+            return res.status(400).json(res.fnError(errors));
+        });
+        ```
+
+        * Create relation with others models
+
+        ```js
+        const ModelObj = Models('ModelFileName');
+
+
+        ModelObj.where('id', 1).fetchAll({withRelated: ['table_1', 'table_2']}).then((Response) => {
+            let responses = Response.toJSON();
+            console.log(responses);
+        }).catch((errors) => {
+            return res.status(400).json(res.fnError(errors));
+        });
+        ```
+
+        * Create relation with others models with condition
+
+        ```js
+        const ModelObj = Models('ModelFileName');
         
-        If you want to use the any bookshelf related addons then install the plugin and add 'Bookshelf.plugin('pluginName');' in config/db_connection.js file.
+        let relationShip = [];
 
-    * Connection <a name="connection"></a>
+        let Table_1 = {
+            'table_1': function () {
+                this.where('status', 'A');
+            },                
+        };
+        relationShip.push(Table_1);
 
-    Database connection related information save in the .env file. Connection initialization declared in "config/db_connection.js" file.
-
-    * Model <a name="model"></a>
-
-    You can easily create a model file in this framework.
-
-        * Process
-        Create any model "fileName.js" file in app/Http/Models. For easily handling model name Create as table name and first character is capital save with the file as .js extension.
-
-        * fileName.js
-
-            * Define a Model 
-
-            ```js
-            let fileName = dbConn.Model.extend({
-                tableName: 'table_One',
-            });
-
-            module.exports = fileName;
-            ```
-
-            * Relationship
-
-                Types of Relation
-
-                *) hasMany
-                *) belongsTo
-                *) hasOne
-                *) belongsToMany
-
-                Find More Details [Bookshelf](https://bookshelfjs.org/tutorial-many-to-many.html).
-
-            ```js
-            let fileName = dbConn.Model.extend({
-                tableName: 'table_One',
-            });
-
-            modelTwoFileName: function () {
-                return this.hasMany(Models('ModelTwoFileName'), 'table_one_id');
-            },           
-
-            module.exports = fileName;
-            ```
-
-            * Virtual Fields
-
-            ```js
-            let fileName = dbConn.Model.extend({
-                tableName: 'table_One',
-            });
-
-            virtuals: {   
-                full_name: function () {
-                    return this.get('first_name') + ' ' + this.get('last_name');
-                }
-            }  
-
-            module.exports = fileName;
-            ```
+        let relation_params = Object.assign(
+            { withRelated: relationShip }
+        );
 
 
+        ModelObj.where('id', 1).fetchAll(relation_params).then((Response) => {
+            let responses = Response.toJSON();
+            console.log(responses);
+        }).catch((errors) => {
+            return res.status(400).json(res.fnError(errors));
+        });
+        ```
+        Find More Details [Knex](http://knexjs.org/) 
 
-        * How to Use Model In Controller
+* Migration <a name="migration"></a>      
 
-            * Fetch One
-
-            ```js
-            const ModelObj = Models('ModelFileName');
-
-            ModelObj.fetch().then((Response) => {
-                let responses = Response.toJSON();
-                console.log(responses);
-            }).catch((errors) => {
-                return res.status(400).json(res.fnError(errors));
-            });
-            ```
-
-            * Fetch All
-
-            ```js
-            const ModelObj = Models('ModelFileName');
-
-            ModelObj.fetchAll().then((Response) => {
-                let responses = Response.toJSON();
-                console.log(responses);
-            }).catch((errors) => {
-                return res.status(400).json(res.fnError(errors));
-            });
-            ```
-
-            * With Where
-
-            ```js
-            const ModelObj = Models('ModelFileName');
-
-            ModelObj.where('id', 1).fetchAll().then((Response) => {
-                let responses = Response.toJSON();
-                console.log(responses);
-            }).catch((errors) => {
-                return res.status(400).json(res.fnError(errors));
-            });
-            ```
-
-            * Create relation with others models
-
-            ```js
-            const ModelObj = Models('ModelFileName');
-
-
-            ModelObj.where('id', 1).fetchAll({withRelated: ['table_1', 'table_2']}).then((Response) => {
-                let responses = Response.toJSON();
-                console.log(responses);
-            }).catch((errors) => {
-                return res.status(400).json(res.fnError(errors));
-            });
-            ```
-
-            * Create relation with others models with condition
-
-            ```js
-            const ModelObj = Models('ModelFileName');
-            
-            let relationShip = [];
-
-            let Table_1 = {
-                'table_1': function () {
-                    this.where('status', 'A');
-                },                
-            };
-            relationShip.push(Table_1);
-
-            let relation_params = Object.assign(
-                { withRelated: relationShip }
-            );
-
-
-            ModelObj.where('id', 1).fetchAll(relation_params).then((Response) => {
-                let responses = Response.toJSON();
-                console.log(responses);
-            }).catch((errors) => {
-                return res.status(400).json(res.fnError(errors));
-            });
-            ```
-            Find More Details [Knex](http://knexjs.org/) 
-
-    * Migration <a name="migration"></a>      
-
-        Coming Soon...
+    Coming Soon...
 
 ## Router <a name="router"></a> 
 
