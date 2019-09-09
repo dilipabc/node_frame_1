@@ -283,83 +283,83 @@ module.exports = fileName;
 
 ## Router <a name="router"></a> 
 
-    We are create the router with the [express js](https://expressjs.com/en/guide/routing.html). We add some more feature to use the router easily. 
+We are create the router with the [express js](https://expressjs.com/en/guide/routing.html). We add some more feature to use the router easily. 
 
-    * File Paths
+* File Paths
 
-        * Web 
-            Create your website related routes in this file 'app/Routes/web.js'
+    * Web 
+        Create your website related routes in this file 'app/Routes/web.js'
 
-         * API 
-            Create your API related routes in this file 'app/Routes/api.js'
+        * API 
+        Create your API related routes in this file 'app/Routes/api.js'
 
-    * Methods
+* Methods
 
-        *) _group
+    *) _group
 
-            *) Definition
-                If are you want to create any group of URL so please use this function
-            *) Example
+        *) Definition
+            If are you want to create any group of URL so please use this function
+        *) Example
 
-                ```js
-                Router._group('/groupName', function (Router) {
-                
-                });
-                ```
+            ```js
+            Router._group('/groupName', function (Router) {
+            
+            });
+            ```
 
-        *) _get / get
+    *) _get / get
 
-            *) Definition
-                If are you want to create any get URL so please use this function
-            *) Example
+        *) Definition
+            If are you want to create any get URL so please use this function
+        *) Example
 
-                ```js
-                Router._get('/yourURL', 'ControllerName.FunctionName');
+            ```js
+            Router._get('/yourURL', 'ControllerName.FunctionName');
 
-                ```
+            ```
 
-                ```js
-                Router.get('/yourURL', 'ControllerName.FunctionName');
-                ```
+            ```js
+            Router.get('/yourURL', 'ControllerName.FunctionName');
+            ```
 
-        *) _post / post
+    *) _post / post
 
-            *) Definition
-                If are you want to create any post URL so please use this function
-            *) Example
+        *) Definition
+            If are you want to create any post URL so please use this function
+        *) Example
 
-                ```js
-                Router._post('/yourURL', 'ControllerName.FunctionName');
-                ```
+            ```js
+            Router._post('/yourURL', 'ControllerName.FunctionName');
+            ```
 
-                ```js
-                Router.post('/yourURL', 'ControllerName.FunctionName');
-                ```
-        *) _resource_api
+            ```js
+            Router.post('/yourURL', 'ControllerName.FunctionName');
+            ```
+    *) _resource_api
 
-            *) Definition
-                If are you want to create a single url and use app response type like (GET, GET with ID, POST, PUT, DELETE) then please use this functions.If are create any URL with this function then please create all these (index, store, show, update, destroy) function in your controller.
+        *) Definition
+            If are you want to create a single url and use app response type like (GET, GET with ID, POST, PUT, DELETE) then please use this functions.If are create any URL with this function then please create all these (index, store, show, update, destroy) function in your controller.
 
-                * index
-                    This function create for get url. With this function you are able to get all the data with help of get request.
+            * index
+                This function create for get url. With this function you are able to get all the data with help of get request.
 
-                * store
-                    This function create for post url. With this function you are able to store the data with help of post request.
+            * store
+                This function create for post url. With this function you are able to store the data with help of post request.
 
-                * show
-                    This function create for get with id url. With this function you are able to get a singal data with help of get request.
+            * show
+                This function create for get with id url. With this function you are able to get a singal data with help of get request.
 
-                * update
-                    This function create for put url. With this function you are able to update the data with help of put request.
+            * update
+                This function create for put url. With this function you are able to update the data with help of put request.
 
-                * destroy
-                    This function create for delete url. With this function you are able to update the data with help of delete request.
+            * destroy
+                This function create for delete url. With this function you are able to update the data with help of delete request.
 
-            *) Example
+        *) Example
 
-                ```js
-                Router.get('/yourURL', 'ControllerName');
-                ```
+            ```js
+            Router.get('/yourURL', 'ControllerName');
+            ```
 
 ## Controller <a name="controller"></a>
 
