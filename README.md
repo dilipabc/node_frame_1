@@ -1,6 +1,6 @@
 # node_frame_1
 
-Easy to work with node js. This is a node js framework with you can easy make any type of rest API and website. 
+Easy to work with Node Js. This is a Node Js framework with you can easy make any type of rest API and website. 
 
 
 
@@ -10,7 +10,7 @@ A computer on which have (8 GB RAM, i3 Processor, 100 GB HHD)
 
 ## Installation
 
-Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
+Make sure you have [Node.js](https://NodeJs.org/) and [npm](https://www.npmjs.com/) installed.
 
 1. Clone or Download the repository
 
@@ -53,7 +53,7 @@ Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.co
 
 ## Dependencies
 
-With the Help of following node modules we are create this node js framework. These modules are very power full and easy to handle in nodejs.
+With the Help of following node modules we are create this Node Js framework. These modules are very power full and easy to handle in NodeJs.
 
     * base64-img              * body-parser               * bookshelf
     * bookshelf-eloquent      * bookshelf-soft-delete     * commander
@@ -428,7 +428,7 @@ You can easily create a controller file in this framework.
 
     * GET
 
-    How to received the data in node js with get method.
+    How to received the data in Node Js with get method.
 
     ```js
     const FileNameController = {
@@ -443,7 +443,7 @@ You can easily create a controller file in this framework.
 
     * POST
 
-    How to received the data in node js with post method.
+    How to received the data in Node Js with post method.
 
     ```js
     const FileNameController = {
@@ -458,7 +458,7 @@ You can easily create a controller file in this framework.
 
     * URL Params
 
-    How to received the data in node js from url's.
+    How to received the data in Node Js from url's.
 
     ```js
     const FileNameController = {
