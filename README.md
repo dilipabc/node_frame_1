@@ -27,9 +27,9 @@ Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.co
 
 3. Edit .env file in root folder with your credentials.
 
-    a) Mysql Database Access Setup
-    b) SMTP Setup
-    c) Others Setup as per your application.
+    * Mysql Database Access Setup
+    * SMTP Setup
+    * Others Setup as per your application.
 
 4. Edit Site Configuration app.js and applicationSettings.js file in ./config/ folder
 
@@ -37,23 +37,23 @@ Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.co
 
     ```
 	$ npm install nodemon -g
-
     $ npm install knex -g
-
     $ npm install node-cmd -g
-
     $ npm install forever -g
 	```
 
 6. Start the application 
 
     ```
+    //This is for development server
+    $ nodemon app.js
+    //This is for live server
     $ forever start -c nodemon app.js
     ```
 
 ## Dependencies
 
-    With the Help of following node modules we are create this node js framework. These modules are very power full and easy to handle in nodejs.
+With the Help of following node modules we are create this node js framework. These modules are very power full and easy to handle in nodejs.
 
     * base64-img              * body-parser               * bookshelf
     * bookshelf-eloquent      * bookshelf-soft-delete     * commander
