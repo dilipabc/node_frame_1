@@ -623,55 +623,55 @@ For send mail we are use the [nodemailer](https://github.com/nodemailer/nodemail
     * Step 2
     Create a mail sender file in 'app/Mails' folder. 
 
-    Example : 'EmailTest.js'
+        Example : 'EmailTest.js'
 
-    ```js
-    const Mail = Helper('mail');
+        ```js
+        const Mail = Helper('mail');
 
-    module.exports = function(details){    
-        const mailOptions = {
-            to:details.to, 
-            subject:details.subject,
-            template:{
-                path : 'emailTemplateTest',
-                data : {myData:details}
-            }
-        };
-        return Mail(mailOptions);
-    }
-    ```     
+        module.exports = function(details){    
+            const mailOptions = {
+                to:details.to, 
+                subject:details.subject,
+                template:{
+                    path : 'emailTemplateTest',
+                    data : {myData:details}
+                }
+            };
+            return Mail(mailOptions);
+        }
+        ```     
     * Step 3
     Call this function in controller
 
-    ```js
-    const EmailTest = Helper('EmailTest');
+        ```js
+        const EmailTest = Helper('EmailTest');
 
-    const FileNameController = {
-        yourFunctionName: function (req, res, next) {
-            let data = {
-                to : 'aaa@test.com',
-                subject : 'My subjects',
-                title : 'My title',
-                message : 'my content',
-            }
-            EmailTest(data).then(function(responce){
-                console.log(responce);
-            });
-        },                
-    };
-    module.exports = FileNameController;
-    ```       
+        const FileNameController = {
+            yourFunctionName: function (req, res, next) {
+                let data = {
+                    to : 'aaa@test.com',
+                    subject : 'My subjects',
+                    title : 'My title',
+                    message : 'my content',
+                }
+                EmailTest(data).then(function(responce){
+                    console.log(responce);
+                });
+            },                
+        };
+        module.exports = FileNameController;
+        ```       
     * Step 4
     Create template file in 'app/Views/email' folder with .ejs extension.
-    
-    * Example
-        emailTemplateTest.ejs  
+        
+        * Example
+            emailTemplateTest.ejs  
 
-    ```
-    <h1><%= myData.title %>,</h1>
+        ```
+        <h1><%= myData.title %>,</h1>
 
-    <p><%= myData.message %></p>
-    ```     
+        <p><%= myData.message %></p>
+        ```     
 
 ## CRON
 
@@ -686,14 +686,14 @@ Create the your helper files in 'app/Http/Middlewares' folder.
 
 * Example
 
-Middlewares.js
+    Middlewares.js
 
-```js
-module.exports = function (req, res, next) {
-    //Your statement
-    next();
-};
-```
+    ```js
+    module.exports = function (req, res, next) {
+        //Your statement
+        next();
+    };
+    ```
 
 For more detail [click here](https://expressjs.com/en/guide/using-middleware.html)
 
