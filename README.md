@@ -10,7 +10,7 @@ A computer on which have (8 GB RAM, i3 Processor, 100 GB HHD)
 
 ## Installation
 
-Make sure you have [Node.js](https://NodeJs.org/) and [npm](https://www.npmjs.com/) installed.
+Make sure you have [NodeJs](https://NodeJs.org/) and [NPM](https://www.npmjs.com/) installed.
 
 1. Clone or Download the repository
 
@@ -290,7 +290,7 @@ We are create the router with the [express js](https://expressjs.com/en/guide/ro
     * Web 
         Create your website related routes in this file 'app/Routes/web.js'
 
-        * API 
+    * API 
         Create your API related routes in this file 'app/Routes/api.js'
 
 * Methods
