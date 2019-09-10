@@ -732,6 +732,7 @@ This application by default run with http. For More details [click here](https:/
 If are you want run your application with https then follow this steps.
 
 * Step 1
+
 Configure .env file in root.
 
 ```
@@ -739,6 +740,7 @@ APP_SECURE = true
 ```
 
 * Step 2
+
 Configure app.js file in root. Add path of ssl-cert-snakeoil.key and ssl-cert-snakeoil.pem from you server.
 
 ```js
