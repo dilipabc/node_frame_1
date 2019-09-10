@@ -279,7 +279,73 @@ module.exports = FileName;
 
 * Migration <a name="migration"></a>      
 
-    Coming Soon...
+For migration handling we are use knex. This ORM is more powerfull and proper documentation available in [knex](https://devhints.io/knex#migrations-1) website.
+
+* Command for migration
+
+    ```
+    knex init //please not use this command knex config file 'knexfile.js' all ready available with proper configration.
+    knex migrate:make migration_name
+    knex migrate:latest
+    knex migrate:rollback
+    ```
+
+* Knex configration file 'knexfile.js'
+   
+   ```js
+    /*
+    |--------------------------------------------------------------------------
+    | Include dotenv plugin for get .env object
+    |--------------------------------------------------------------------------
+    |
+    */
+    require('dotenv').config();
+
+    /*
+    |--------------------------------------------------------------------------
+    | This Object return database connection object 
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    module.exports = {
+        client: 'mysql',
+        connection: {
+            host: process.env.DB_HOST,
+            port: process.env.DB_PORT,
+            user: process.env.DB_USERNAME,
+            password: process.env.DB_PASSWORD,
+            database: process.env.DB_DATABASE,
+            charset: 'utf8'
+        },
+        pool: { min: 2, max: 10 },
+        migrations: {
+            tableName: 'migrations'
+        }
+    };
+   ```
+
+* For create a migration file
+
+    ```
+    knex migrate:make table_1
+
+    ```    
+
+* For create table with migration file
+
+    ```
+    knex migrate:latest
+
+    ```
+
+* For rollback
+
+    ```
+    knex migrate:rollback
+
+    ```
+For more detail [click here](https://devhints.io/knex)
 
 ## Router <a name="router"></a> 
 
