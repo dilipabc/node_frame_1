@@ -336,7 +336,37 @@ For migration handling we are use knex. This ORM is more powerfull and proper do
     knex migrate:make table_1    
     knex migrate:make table_1 --env production
 
-    ```    
+    ```  
+* Add your table field details
+
+    ```js
+    exports.up = function(knex, Promise) {
+
+        return knex.schema.createTable('table_1', function (table) {
+            table.increments();
+            table.string('first_name');
+            table.string('middle_name');
+            table.string('last_name');
+            table.float('age');
+            table.string('email');
+            table.string('password');        
+            table.integer('mobile_no');
+            table.date('birthday');       
+            table.boolean('is_login');        
+            table.enu('status',['A', 'I', 'D']).defaultTo('I');
+            table.time('created_at');
+            table.integer('created_by');
+            table.timestamp('updated_at');
+            table.string('ip_address');
+        })
+    
+    };
+
+    exports.down = function(knex, Promise) {
+        return knex.schema.dropTableIfExists('table_1');
+    };
+
+    ```  
 
 * For create table with migration file
 
