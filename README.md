@@ -290,6 +290,11 @@ For migration handling we are use knex. This ORM is more powerfull and proper do
     knex migrate:rollback
     ```
 
+* Create knexfile.js
+
+    ```
+    knex init
+    ```
 * Knex configration file 'knexfile.js'
    
    ```js
@@ -328,7 +333,8 @@ For migration handling we are use knex. This ORM is more powerfull and proper do
 * For create a migration file
 
     ```
-    knex migrate:make table_1
+    knex migrate:make table_1    
+    knex migrate:make table_1 --env production
 
     ```    
 
@@ -336,6 +342,7 @@ For migration handling we are use knex. This ORM is more powerfull and proper do
 
     ```
     knex migrate:latest
+    knex migrate:latest --env production
 
     ```
 
@@ -343,9 +350,11 @@ For migration handling we are use knex. This ORM is more powerfull and proper do
 
     ```
     knex migrate:rollback
+    knex migrate:rollback --env production
 
     ```
-For more detail [click here](https://devhints.io/knex)
+For more detail [click here](https://devhints.io/knex).
+
 
 ## Router <a name="router"></a> 
 
