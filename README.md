@@ -167,11 +167,10 @@ Find More Details [Bookshelf](https://bookshelfjs.org/tutorial-many-to-many.html
 ```js
 let FileName = dbConn.Model.extend({
     tableName: 'table_One',
+    modelTwoFileName: function () {
+        return this.hasMany(Models('ModelTwoFileName'), 'table_one_id');
+    },
 });
-
-modelTwoFileName: function () {
-    return this.hasMany(Models('ModelTwoFileName'), 'table_one_id');
-},           
 
 module.exports = FileName;
 ```
@@ -181,13 +180,12 @@ module.exports = FileName;
 ```js
 let FileName = dbConn.Model.extend({
     tableName: 'table_One',
+    virtuals: {   
+        full_name: function () {
+            return this.get('first_name') + ' ' + this.get('last_name');
+        }
+    },
 });
-
-virtuals: {   
-    full_name: function () {
-        return this.get('first_name') + ' ' + this.get('last_name');
-    }
-}  
 
 module.exports = FileName;
 ```
