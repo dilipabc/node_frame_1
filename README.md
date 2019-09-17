@@ -834,7 +834,7 @@ For send mail we are use the [nodemailer](https://github.com/nodemailer/nodemail
     Call this function in controller
 
         ```js
-        const EmailTest = Helper('EmailTest');
+        const EmailTest = Mails('EmailTest');
 
         const FileNameController = {
             yourFunctionName: function (req, res, next) {
