@@ -652,6 +652,84 @@ You can easily create a controller file in this framework.
     module.exports = FileNameController;
     ```
 
+* HTTP/HTTPS Response 
+
+    * HTTP Response
+        ```js
+        res.send('Hello World!');
+        ```  
+
+    * Empty Response
+
+        ```js
+        res.end();
+        ```   
+
+     * Set the HTTP Response with status
+
+        ```js
+        
+        res.status(404).end();
+        //Proper Json Format
+        res.status(404).json(res.fnError('Your Error Message/YourErrorObject'));        
+
+        //OR
+        
+        // === res.status(200).send('OK')        
+        res.sendStatus(200);
+        //Proper Json Format
+        res.status(200).json(res.fnSuccess(YourObject));
+
+        //OR
+
+        // === res.status(403).send('Forbidden')
+        res.sendStatus(403);
+        //Proper Json Format
+        res.status(403).json(res.fnError('Your Error Message/YourErrorObject'));  
+
+        //OR
+        
+        // === res.status(404).send('Not Found')
+        res.sendStatus(404);
+        //Proper Json Format
+        res.status(404).json(res.fnError('Your Error Message/YourErrorObject'));
+
+        //OR
+
+        // === res.status(500).send('Internal Server Error')
+        res.sendStatus(500);
+        //Proper Json Format
+        res.status(500).json(res.fnError('Your Error Message/YourErrorObject'));
+
+        // Example
+        let YourErrorObject = {            
+            "status": "error",
+            "errors": {
+                "name": {
+                    "message": "The name field is mandatory.",
+                    "rule": "required"
+                },
+                "email": {
+                    "message": "The email field is mandatory.",
+                    "rule": "required"
+                },
+                "mobile_no": {
+                    "message": "The mobile no field is mandatory.",
+                    "rule": "required"
+                },
+                "message": {
+                    "message": "The message field is mandatory.",
+                    "rule": "required"
+                }
+            },
+            "meta_data": {
+                "method": "POST",
+                "url": "http://localhost:5032/api/test",
+                "at": "2019-09-17T06:30:36.503Z"
+            }            
+        }
+        ```        
+
 For more details [click here](https://www.npmjs.com/package/node-input-validator).
 
 ## View <a name="view"></a> 

@@ -27,10 +27,10 @@ module.exports = function (app) {
     |
     */
     app.use('/', [
-        ApiMiddleware,              // To Bring API Response Funtion with MetaData.  
-        RequestMiddlware,           // To Log each request URL with details.
-        IpMiddleware,               // To White List and Black List Ip address.
-        CsrftokenVerifyMiddleware,  // To validate all url with csrf-token.
+        //ApiMiddleware,              // To Bring API Response Funtion with MetaData.  
+        //RequestMiddlware,           // To Log each request URL with details.
+        //IpMiddleware,               // To White List and Black List Ip address.
+        //CsrftokenVerifyMiddleware,  // To validate all url with csrf-token.
     ], webRoute);
     //=======================================================================
     /*
@@ -40,10 +40,10 @@ module.exports = function (app) {
     |
     */
     app.use('/api', [
-        ApiMiddleware,              // To Bring API Response Funtion with MetaData.  
-        RequestMiddlware,           // To Log each request URL with details.
-        IpMiddleware,               // To White List and Black List Ip address.
-        CsrftokenVerifyMiddleware,  // To validate all url with csrf-token.
+        //ApiMiddleware,              // To Bring API Response Funtion with MetaData.  
+        //RequestMiddlware,           // To Log each request URL with details.
+        //IpMiddleware,               // To White List and Black List Ip address.
+        //CsrftokenVerifyMiddleware,  // To validate all url with csrf-token.
     ], apiRoute);
     //=======================================================================
     /*

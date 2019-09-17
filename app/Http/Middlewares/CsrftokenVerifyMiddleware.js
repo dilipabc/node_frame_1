@@ -21,7 +21,7 @@ module.exports = function (req, res, next) {
     //==================================================================
     //==Allow these url for not validate csrf_token and application_access_key
     if (req.path != undefined) {
-        let allowURLArray = ['/', '/routes', '/api/utility/csrf-token-generate', '/api/verify', '/api/reset-password']
+        let allowURLArray = ['/']
         let returnResults = allowURLArray.indexOf(req.path);
         if (returnResults != -1) {
             return next();
