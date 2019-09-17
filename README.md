@@ -1,6 +1,6 @@
 # node_frame_1
 
-Easy to work with Node Js. This is a Node Js framework with you can easy make any type of rest API and website. 
+Easy to work with Node Js. This is a Node Js framework with you can easily make any type of rest API and website. 
 
 
 

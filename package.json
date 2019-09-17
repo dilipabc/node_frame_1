@@ -1,7 +1,7 @@
 {
   "name": "node_frame_1",
   "version": "1.0.0",
-  "description": "Your Software Description",
+  "description": "Easy to work with Node Js. This is a Node Js framework with you can easily make any type of rest API and website.",
   "main": "app.js",
   "preferGlobal": true,
   "bin": "./app/Console/kernal.js",
