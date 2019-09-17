@@ -344,14 +344,14 @@ For migration handling we are use knex. This ORM is more powerfull and proper do
 
         return knex.schema.createTable('table_1', function (table) {
             table.increments();
-            table.string('first_name');
-            table.string('middle_name');
-            table.string('last_name');
-            table.float('age');
-            table.string('email');
-            table.string('password');        
-            table.integer('mobile_no');
-            table.date('birthday');       
+            table.string('first_name').notNull();
+            table.string('middle_name').notNull();
+            table.string('last_name').notNull();
+            table.float('age').notNull();
+            table.string('email').notNull();
+            table.string('password').notNull(); 
+            table.integer('mobile_no').notNull(); 
+            table.date('birthday').notNull();        
             table.boolean('is_login');        
             table.enu('status',['A', 'I', 'D']).defaultTo('I');
             table.time('created_at');
