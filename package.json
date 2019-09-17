@@ -1,7 +1,7 @@
 {
   "name": "node_frame_1",
   "version": "1.0.0",
-  "description": "Walk-In Mobile App",
+  "description": "Your Software Description",
   "main": "app.js",
   "preferGlobal": true,
   "bin": "./app/Console/kernal.js",
