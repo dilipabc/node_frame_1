@@ -359,7 +359,7 @@ For migration handling we are use knex. This ORM is more powerfull and proper do
             table.timestamp('updated_at');
             table.string('ip_address');
 
-            table.foreign('created_by').references('user.id').onDelete('CASCADE');
+            table.foreign('created_by').references('table_2.id').onDelete('CASCADE');
 
         });
 
