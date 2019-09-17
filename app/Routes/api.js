@@ -25,6 +25,7 @@ Router._group('/api', function (Router) {
     //Router._get('/example-fetch/:id', 'SampleController.show');
     //Router._post('/example-update', 'SampleController.update');
     //Router._post('/example-delete', 'SampleController.destroy');
+    //Router._resource_api('/yourURL', 'SampleController');
     //========================================================
 
 });

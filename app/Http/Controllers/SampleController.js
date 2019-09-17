@@ -23,7 +23,7 @@ const SampleController = {
     # Params : []  
     *****************************************************/
     index: async function (req, res, next) {
-
+        //Your Statement
         Sample.fetchAll().then((Response) => {
             let responses = Response.toJSON();
             //console.log(responses);
@@ -83,7 +83,7 @@ const SampleController = {
     # Params : []  
     *****************************************************/
     show: function (req, res, next) {
-
+        //Your Statement
         let id = _.toInteger(req.params.id) ? req.params.id : false;
 
         Sample.where('id', id).fetchAll().then((Response) => {
@@ -104,6 +104,7 @@ const SampleController = {
     # Params : []  
     *****************************************************/
     update: async function (req, res, next) {
+        //Your Statement
         let formData = req.body;
 
         let validation = new Validator(formData, {
@@ -144,6 +145,7 @@ const SampleController = {
     # Params : []  
     *****************************************************/
     destroy: function (req, res, next) {
+        //Your Statement
         let id = req.body.id;
         Sample.where('id', id).destroy({ require: false }).then((response) => {
             return res.status(200).json(res.fnSuccess(response));
