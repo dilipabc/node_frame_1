@@ -467,7 +467,7 @@ We are create the router with the [express js](https://expressjs.com/en/guide/ro
         * Example
 
             ```js
-            Router.get('/yourURL', 'ControllerName');
+            Router._resource_api('/yourURL', 'ControllerName');
             ```
 
 ## Controller <a name="controller"></a>
