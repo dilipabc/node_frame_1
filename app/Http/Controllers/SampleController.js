@@ -65,7 +65,7 @@ const SampleController = {
             dob : formData.dob,
         }
 
-        new Sample(insertData).then((Response) => {
+        new Sample(insertData).save().then((Response) => {
             let responses = Response.toJSON();
             //console.log(responses);
             return res.status(200).json(res.fnSuccess(Response));
