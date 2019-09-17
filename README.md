@@ -420,11 +420,13 @@ We are create the router with the [express js](https://expressjs.com/en/guide/ro
 
             ```js
             Router._get('/yourURL', 'ControllerName.FunctionName');
+            Router._get('/yourURL/:id', 'ControllerName.FunctionName');
 
             ```
 
             ```js
             Router.get('/yourURL', 'ControllerName.FunctionName');
+            Router.get('/yourURL/:id', 'ControllerName.FunctionName');
             ```
 
     * _post / post
@@ -435,10 +437,12 @@ We are create the router with the [express js](https://expressjs.com/en/guide/ro
 
             ```js
             Router._post('/yourURL', 'ControllerName.FunctionName');
+            Router._post('/yourURL/:id', 'ControllerName.FunctionName');
             ```
 
             ```js
             Router.post('/yourURL', 'ControllerName.FunctionName');
+            Router.post('/yourURL/:id', 'ControllerName.FunctionName');
             ```
     * _resource_api
 
