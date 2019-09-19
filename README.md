@@ -659,6 +659,23 @@ You can easily create a controller file in this framework.
     module.exports = FileNameController;
     ```
 
+* Convert base64 string to image With 'base64-img' modules.
+
+    ```js
+    const base64Img = require('base64-img'); 
+
+    formData.profilePic = formData.profilePic.replace("data:image/*;charset=utf-8;base64,", "data:image/jpg;base64,");
+    let base64img = formData.profilePic.split(' ').join('+'); // Replace empty space
+    let destinationPath = publicPath + '/uploads/'; // File destination path define
+    let now = new Date();
+    let new_filename = now.getTime() + '_' + slug; // File Name Creating
+
+    base64Img.img(base64img, destinationPath, new_filename, function (err, filepath) {
+        console.log(err);
+        console.log(filepath);
+    });
+    ```
+
 * HTTP/HTTPS Response 
 
     * HTTP Response
