@@ -668,6 +668,7 @@ You can easily create a controller file in this framework.
     let base64img = formData.profilePic.split(' ').join('+'); // Replace empty space
     let destinationPath = publicPath + '/uploads/'; // File destination path define
     let now = new Date();
+    let slug = 'image';
     let new_filename = now.getTime() + '_' + slug; // File Name Creating
 
     base64Img.img(base64img, destinationPath, new_filename, function (err, filepath) {

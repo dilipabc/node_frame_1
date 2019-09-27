@@ -23,4 +23,4 @@ let sampleModel = dbConn.Model.extend({
     //============================================
 });
 
-module.exports = faqModel;
+module.exports = sampleModel;
