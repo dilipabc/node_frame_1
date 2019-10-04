@@ -583,30 +583,30 @@ You can easily create a controller file in this framework.
     module.exports = FileNameController;
     ```
 
-* How to include Libraries file in conntroller
+* How to include Libraries file in controller
 
     ```js
     const LibrariesObject = Libraries('LibrariesFileName');
     ```
-* How to include Mails file in conntroller
+* How to include Mails file in controller
 
     ```js
     const MailsObject = Mails('MailsFileName');
     ```
 
-* How to include Providers file in conntroller
+* How to include Providers file in controller
 
     ```js
     const ProvidersObject = Providers('ProvidersFileName');
     ```
 
-* How to include Helper file in conntroller
+* How to include Helper file in controller
 
     ```js
     const HelperObject = Helper('HelperFileName');
     ```
 
-* How to include Models file in conntroller
+* How to include Models file in controller
 
     ```js
     const ModelsObject = Models('ModelsFileName');
