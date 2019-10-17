@@ -806,7 +806,7 @@ Create the your thiming files in 'app/Views' folder
     let title = 'demo';
     res.render('layout' {data : title});
 
-    // Note : data a variable name with this variable name you can received the title variable value from template file.
+    // Note : data a variable name with this variable name you can receive the title variable value in the template file.
     ```
     
 For more details [click here](https://github.com/mde/ejs).
