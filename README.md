@@ -89,6 +89,9 @@ With the Help of following node modules we are create this Node Js framework. Th
     * migrations
     * node_modules
     * public
+        ```
+        Note : Save all your public access folder or file in this folder.
+        ```
     * app.js
     * knexfile.js
     * package.json
@@ -785,6 +788,25 @@ Create the your thiming files in 'app/Views' folder
         <%= variable %>            
 
     <%- include('elements/footer'); %>
+    ```
+
+* How to call view template file In Controller
+
+    * Example
+
+    ```js
+    res.render('layout');
+    ```
+
+* How to send any variable or object in template file from Controller
+
+    * Example
+
+    ```js
+    let title = 'demo';
+    res.render('layout' {data : title});
+
+    // Note : data a variable name with this variable name you can received the title variable value from template file.
     ```
     
 For more details [click here](https://github.com/mde/ejs).
