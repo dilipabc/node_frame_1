@@ -11,7 +11,7 @@ const RequestMiddlware = Middlewares('RequestMiddlware');
 const IpMiddleware = Middlewares('IpMiddleware');
 const CsrftokenVerifyMiddleware = Middlewares('CsrftokenVerifyMiddleware');
 //=======================================================================
-module.exports = function (app) {    
+module.exports = function (app) {
     //=======================================================================
     app.use(function (req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
@@ -19,19 +19,6 @@ module.exports = function (app) {
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
         next();
     });
-    //=======================================================================
-    /*
-    |------------------------------------------------------------------------
-    | Application All Web Routes imports
-    |------------------------------------------------------------------------
-    |
-    */
-    app.use('/', [
-        ApiMiddleware,              // To Bring API Response Funtion with MetaData.  
-        RequestMiddlware,           // To Log each request URL with details.
-        //IpMiddleware,               // To White List and Black List Ip address.
-        //CsrftokenVerifyMiddleware,  // To validate all url with csrf-token.
-    ], webRoute);
     //=======================================================================
     /*
     |------------------------------------------------------------------------
@@ -46,6 +33,19 @@ module.exports = function (app) {
         //CsrftokenVerifyMiddleware,  // To validate all url with csrf-token.
     ], apiRoute);
     //=======================================================================
+    /*
+    |------------------------------------------------------------------------
+    | Application All Web Routes imports
+    |------------------------------------------------------------------------
+    |
+    */
+    app.use('/', [
+        ApiMiddleware,              // To Bring API Response Funtion with MetaData.  
+        RequestMiddlware,           // To Log each request URL with details.
+        //IpMiddleware,               // To White List and Black List Ip address.
+        //CsrftokenVerifyMiddleware,  // To validate all url with csrf-token.
+    ], webRoute);
+    //=======================================================================    
     /*
     |------------------------------------------------------------------------
     | Application All API List
