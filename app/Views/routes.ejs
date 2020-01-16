@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>App APIs Routing Lists</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<%
+let color = {
+    GET     : 'label-success',
+    POST    : 'label-primary',
+    PUT     : 'label-warning',
+    DELETE  : 'label-danger'
+}
+%>
+
+<div class="container">
+    <h2>Application Routes (<%= routes.length %>)</h2>
+    <table class="table table-sm table-hover">
+        <tbody>
+            <% routes.forEach((route)=>{ %>
+                <tr>
+                    <td width="50%">
+                        <span class="label <%= (color[route.method]) %>"><%= (route.method) %></span>
+                    </td>
+                    <td width="50%"><%= (route.path) %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

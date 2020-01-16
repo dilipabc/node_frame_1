@@ -62,7 +62,7 @@ module.exports = function (app) {
     |------------------------------------------------------------------------
     |
     */
-    app.get('**', ApiMiddleware, (req, res, next) => {
+    app.all('**', ApiMiddleware, (req, res, next) => {
         res.status(400).json(res.fnError('API url is wrong. please check the documentation.'));
     });
     //=======================================================================
