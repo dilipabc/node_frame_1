@@ -1049,4 +1049,4 @@ Send firebase notification with this framework in android, ios, and website.
 
 ## License
 
-This framework creating for help the all developer. Our aim is not make money from this framework. Developer are free to use this framework. If you have any suggestion or comment please send me as mail.
+This framework creating for help the all developer. Our aim is not make money from this framework. Developer are free to use this framework. If you have any suggestion or comment please send me as mail dilipabc@gmail.com.
