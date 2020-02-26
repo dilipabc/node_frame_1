@@ -1067,10 +1067,10 @@ Send firebase notification with this framework in android, ios, and website.
     ```
 
 * Note :
-    * You need to send file with files field name.
-    * You are able to send multiple file with files field.
-    * If are you want set file name then please see the helper functon.
-    * With this helper function you are able to upload any type of files. If are you want to validat then please see the helper function.
+    * You need to send the file with the files field name.
+    * You are able to send multiple files with the files field.
+    * If are you want to set a file name then please see the helper function.
+    * With this helper function, you are able to upload any type of files. If are you want to validate then please see the helper function.
     * This helper function return uploaded file name.
 
 ## License
