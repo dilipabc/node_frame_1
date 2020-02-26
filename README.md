@@ -64,7 +64,7 @@ With the Help of following node modules we are create this Node Js framework. Th
     * moment                  * morgan                    * mysql 
     * node-cmd                * node-cron                 * node-input-validator 
     * nodemailer              * reload                    * rotating-file-stream
-    * slug-generator          * uniqid
+    * slug-generator          * uniqid                    * multer
 
 ## Folder Structure
 
@@ -118,6 +118,7 @@ With the Help of following node modules we are create this Node Js framework. Th
 * [HTTPS](#https)
 * Custom Command
 * [FCM Notification](#notification)
+* [File Upload](#file_upload)
 
 ## Database 
 
@@ -1046,6 +1047,31 @@ Send firebase notification with this framework in android, ios, and website.
     * Copy this file in public folder.
     * Add your file with full file path.
 
+
+## File Upload <a name="file_upload"></a> 
+
+* How to call file upload helper in controller.
+
+    ```js
+    const fileUpload = Helper('fileUpload');
+
+    let path = './public/uploads/';
+
+    fileUpload
+            .upload(req, res, path)
+            .then((response) => {
+                    console.log(response);
+                }                                               
+            });
+
+    ```
+
+* Note :
+    * You need to send file with files field name.
+    * You are able to send multiple file with files field.
+    * If are you want set file name then please see the helper functon.
+    * With this helper function you are able to upload any type of files. If are you want to validat then please see the helper function.
+    * This helper function return uploaded file name.
 
 ## License
 
