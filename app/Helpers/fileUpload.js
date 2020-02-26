@@ -10,7 +10,7 @@
 const multer = require('multer');
 
 const fileUploadHelper = {
-    upload: function (req, res, path) {
+    f_upload: function (req, res, path) {
         let targetPath = path ? path : './public/uploads/';
         const storage = multer.diskStorage({
             destination: (req, file, callback) => {

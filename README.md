@@ -1058,7 +1058,7 @@ Send firebase notification with this framework in android, ios, and website.
     let path = './public/uploads/';
 
     fileUpload
-            .upload(req, res, path)
+            .f_upload(req, res, path)
             .then((response) => {
                     console.log(response);
                 }                                               
