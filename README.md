@@ -127,8 +127,10 @@ With the Help of following node modules we are create this Node Js framework. Th
 This framework use the knex and bookshelf modules for access the database. This modules are provide more control on database. In these ORM very easy to create models and access relations data from database. For more information about these ORM [Knex](http://knexjs.org/) and [Bookshelf](https://bookshelfjs.org/tutorial-many-to-many.html). You are also free for use any bookshelf related addons/plugin.
 
     * Process to use bookshelf plugin
-    
+    ```
     If you want to use the any bookshelf related addons then install the plugin and add 'Bookshelf.plugin('pluginName');' in config/db_connection.js file.
+
+    ```
 
 2. Connection <a name="connection"></a>
 
@@ -1072,6 +1074,8 @@ Send firebase notification with this framework in android, ios, and website.
     * If are you want to set a file name then please see the helper function.
     * With this helper function, you are able to upload any type of files. If are you want to validate then please see the helper function.
     * This helper function return uploaded file name.
+
+Find More Details [multer](https://github.com/expressjs/multer).
 
 ## License
 
