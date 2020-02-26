@@ -8,7 +8,7 @@
 *****************************************************/
 //==================================================================
 const multer = require('multer');
-
+const fileTypeAllow = ['txt', 'doc', 'docs', 'pdf', 'jpg', 'png', 'gif', 'jpeg', 'bmp'];
 const fileUploadHelper = {
     f_upload: function (req, res, path) {
         let targetPath = path ? path : './public/uploads/';
@@ -16,33 +16,52 @@ const fileUploadHelper = {
             destination: (req, file, callback) => {
                 callback(null, targetPath);
             },
-            filename: (req, file, callback) => {    
+            filename: (req, file, callback) => {
                 let fileType = '';
-                if(file.originalname){                    
-                    let fileArr = file.originalname.split(".");                    
-                    if(fileArr.length>0){
+                if (file.originalname) {
+                    let fileArr = file.originalname.split(".");
+                    if (fileArr.length > 0) {
                         let totalLength = fileArr.length - 1;
                         fileType = fileArr[totalLength];
                     }
-                }            
+                }
                 callback(null, Date.now() + '_file' + '.' + fileType);
             }
         });
-        const upload = multer({ storage: storage }).any('file');
+        const upload = multer({
+            storage: storage,
+            fileFilter: (req, file, cb) => {
+                let fileType = '';
+                if (file.originalname) {
+                    let fileArr = file.originalname.split(".");
+                    if (fileArr.length > 0) {
+                        let totalLength = fileArr.length - 1;
+                        fileType = fileArr[totalLength];
+                    }
+                }
+                let type = fileType.toLowerCase();
+                if (fileTypeAllow.indexOf(type) < 0) {
+                    cb(null, false);
+                    return cb(new Error('Only txt, doc, docs, pdf, jpg, png, gif, jpeg, bmp format allowed!'));
+                } else {
+                    cb(null, true);
+                }
+            }
+        }).any('file');
         return new Promise(function (resolve, reject) {
             upload(req, res, (error) => {
                 if (error) {
                     reject(error);
                 }
-                else {                    
-                    var uploadData = [];                    
-                    if(req.files.length){
+                else {
+                    var uploadData = [];
+                    if (req.files.length) {
                         req.files.map((file) => {
                             uploadData.push(file.filename);
                         });
                         resolve(uploadData);
                     }
-                    
+
                 }
             })
         })
