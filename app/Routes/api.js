@@ -19,6 +19,8 @@ Router._group('/api', function (Router) {
     Router.get('/test', (req, res, next) => {
         res.status(200).json(res.fnSuccess('Node JS V1.0 API Running ........'));
     });  
+
+    Router._get('/testEmail', 'EmailTestController.doEmailTest');
     //========================================================
     //Router._get('/example-fetch-all', 'SampleController.index');
     //Router._post('/example-insert-data', 'SampleController.store');
